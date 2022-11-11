@@ -1,5 +1,6 @@
 const express = require("express");
 const axios = require('axios');
+const transaction = require("./routes/transactionRoute");
 require('dotenv').config();
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors({
     origin: process.env.ORIGIN
 }));
 
+app.use('/transaction', cors(), transaction);
 const config = {
   method: 'get',
   url: 'https://api.paystack.co/transaction',

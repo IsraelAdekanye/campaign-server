@@ -3,7 +3,7 @@ var qs = require('qs');
 require('dotenv').config();
 //const { pgPool } = require("../queries/queries");
 
-// INITIATE TRANSACTION
+// INITIALIZE TRANSACTION
 const initialize = async (req, res) => {
     const { firstName, lastName, email, phoneNumber, gender, uuid, amount
     } = req.body
@@ -19,7 +19,6 @@ const initialize = async (req, res) => {
       });
 
 }
-
 
 module.exports = {
     initialize
