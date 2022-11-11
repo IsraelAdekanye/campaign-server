@@ -4,6 +4,15 @@ require('dotenv').config();
 
 const app = express();
 
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next()
+})
+app.use(express.json())
+app.use(cors({
+    origin: process.env.ORIGIN
+}));
+
 const config = {
   method: 'get',
   url: 'https://api.paystack.co/transaction',
