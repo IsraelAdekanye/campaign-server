@@ -5,22 +5,22 @@ require('dotenv').config();
 
 // INITIALIZE TRANSACTION
 const initialize = async (req, res) => {
-    const { firstName, lastName, email, phoneNumber, gender, uuid, amount
+    const { email, uuid, amount
     } = req.body
     const donation = amount * 100;
 
     var data = qs.stringify({
-        'email': email,
-        'amount': donation,
+        'email': `${email}`,
+        'amount': `${donation}`,
         'currency': 'NGN',
-        'reference': uuid,
+        'reference': `${uuid}`,
         'callback_url': process.env.ORIGIN,
         'bearer': 'account' 
       });
 
 
     var config = {
-    method: 'post',
+    method: 'POST',
     url: 'https://api.paystack.co/transaction/initialize',
     headers: { 
         'Content-Type': 'application/x-www-form-urlencoded', 
@@ -30,9 +30,15 @@ const initialize = async (req, res) => {
     data : data
     };
 
+    console.log(data)
+
+    //res.status(200).json(data)
+
     axios(config)
     .then( (response)=> {
+        console.log(typeof(response))
     console.log(JSON.stringify(response.data));
+    res.status(200).json(response)
     })
     .catch( (error)=> {
     console.log(error);
