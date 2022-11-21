@@ -4,9 +4,9 @@ require('dotenv').config();
 //const { pgPool } = require("../queries/queries");
 
 // INITIALIZE TRANSACTION
-const initialize = async (req, res) => {
+const initialize = async (request, res) => {
     const { email, uuid, amount
-    } = req.body
+    } = request.body
     const donation = amount * 100;
 
     var data = qs.stringify({
@@ -24,24 +24,20 @@ const initialize = async (req, res) => {
     url: 'https://api.paystack.co/transaction/initialize',
     headers: { 
         'Content-Type': 'application/x-www-form-urlencoded', 
-        'Accept': 'application/json', 
+        //'Accept': 'application/json', 
         'Authorization': process.env.AUTHORIZATION
     },
     data : data
     };
 
-    console.log(data)
-
-    //res.status(200).json(data)
-
-    axios(config)
+    await axios(config)
     .then( (response)=> {
-    console.log(response.data);
-    res.status(200).json(response)
+    console.log(response.data)
     })
-    // .catch( (error)=> {
-    // console.log(error);
-    // });
+    .catch( (error)=> {
+    console.log(error);
+    });
+
 }
 
 module.exports = {
