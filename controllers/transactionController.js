@@ -30,16 +30,18 @@ const initialize = async (request, response) => {
     data : data
     };
 
-    await axios(config).then(response0 => {
-        if (response0.data.status == true) {
-            console.log(response0.data)
-            response.status(200);
-        }
-        else console.log("error")
-    })
-    // .catch( (error)=> {
-    // console.log(error);
-    // });
+    try {
+        await axios(config).then(response0 => {
+            if (response0.data.status == true) {
+                console.log(response0.data);
+                response.status(200).json(response0.data);
+            }
+            else console.log("error")
+        })
+    } catch (error) {
+        res.status(400).json({error: error.message});
+        console.log(error);
+    }
 
 }
 
