@@ -34,7 +34,7 @@ const initialize = async (request, response) => {
         await axios(config).then(response0 => {
             if (response0.data.status == true) {
                 console.log(response0.data);
-                response.status(200).json(response0.data);
+                response.status(response0.status).json(response0.data);
             }
             else console.log("error")
         })
