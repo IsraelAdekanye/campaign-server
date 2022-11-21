@@ -39,7 +39,7 @@ const initialize = async (request, response) => {
             else console.log("error")
         })
     } catch (error) {
-        res.status(400).json({error: error.message});
+        response.status(400).json({error: error.message});
         console.log(error);
     }
 
