@@ -36,13 +36,12 @@ const initialize = async (req, res) => {
 
     axios(config)
     .then( (response)=> {
-        console.log(typeof(response))
-    console.log(JSON.stringify(response.data));
+    console.log(response.data);
     res.status(200).json(response)
     })
-    .catch( (error)=> {
-    console.log(error);
-    });
+    // .catch( (error)=> {
+    // console.log(error);
+    // });
 }
 
 module.exports = {
