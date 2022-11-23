@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 })
 app.use(express.json())
 app.use(cors({
-    origin: process.env.ORIGIN
+    origin: '*'
 }));
 
 app.use('/transaction', cors(), transaction);
