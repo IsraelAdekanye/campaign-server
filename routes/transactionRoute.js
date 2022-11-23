@@ -4,7 +4,7 @@ const { initialize } = require("../controllers/transactionController");
 
 const router = express.Router();
 
-router.post('/');
+router.get('/');
 
 router.post('/initialize', initialize);
 
