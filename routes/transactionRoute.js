@@ -1,10 +1,10 @@
 const express = require("express");
-const { initialize } = require("../controllers/transactionController");
+const { initialize, plain } = require("../controllers/transactionController");
 
 
 const router = express.Router();
 
-router.get('/');
+router.get('/', plain);
 
 router.post('/initialize', initialize);
 

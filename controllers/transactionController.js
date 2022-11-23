@@ -41,6 +41,9 @@ const initialize = async (request, response) => {
     }
 }
 
+const plain = async (req, res) => {
+    res.status(200).send("NIL")
+}
 module.exports = {
     initialize
 }
