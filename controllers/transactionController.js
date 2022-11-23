@@ -45,5 +45,5 @@ const plain = async (req, res) => {
     res.status(200).send("NIL")
 }
 module.exports = {
-    initialize
+    initialize, plain
 }
