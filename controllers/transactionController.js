@@ -37,7 +37,7 @@ const initialize = async (request, response) => {
         })
     } catch (error) {
         response.status(400).json({error: error.message, message: error.response.data.message});
-        //console.log(error);
+        console.log(error);
     }
 }
 
