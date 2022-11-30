@@ -22,7 +22,7 @@ const initialize = async (request, response) => {
     headers: { 
         'Content-Type': 'application/x-www-form-urlencoded', 
         'Accept': 'application/json', 
-        'Authorization': 'Bearer sk_test_639c6e204c9029f563fab8ec65c261053b90e082'
+        //'Authorization': 'Bearer sk_test_639c6e204c9029f563fab8ec65c261053b90e082'
     },
     data : data
     };
